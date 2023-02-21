@@ -14,13 +14,14 @@ jobs:
         os: [ubuntu-latest, macos-latest]
     
     steps:
+
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
           node-version: "16.x"
           cash: 'npm'
 
-      -  name: Run Snyk to check for vulnerabilities
+      - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
         continue-on-error: true # To make sure that SARIF upload gets called
         env:
